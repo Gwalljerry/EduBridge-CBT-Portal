@@ -3,164 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduBridge Pro | NextGen Learning Hub</title>
+    <title>Skill-Sync | Digital Artisan Directory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .active-tab { background: #4f46e5; color: white; box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4); }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
-        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(90deg, #4f46e5, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tab-active { border-bottom: 3px solid #4f46e5; color: #4f46e5; }
     </style>
 </head>
-<body class="bg-[#f8fafc] h-screen flex flex-col overflow-hidden">
+<body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
 
-    <nav class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center z-50">
-        <div class="flex items-center gap-3">
-            <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-lg shadow-indigo-200">
-                <i class="fas fa-layer-group"></i>
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-indigo-600 text-white p-2 rounded-xl"><i class="fas fa-tools"></i></div>
+                <h1 class="text-xl font-black tracking-tighter">SKILL<span class="text-indigo-600">SYNC</span></h1>
             </div>
-            <h1 class="text-xl font-black text-slate-800 tracking-tight">EduBridge<span class="text-indigo-600">.</span></h1>
-        </div>
-        <div class="flex items-center gap-3">
-            <div class="text-right hidden sm:block">
-                <p class="text-xs font-bold text-slate-800">NextGen Fellow</p>
-                <p class="text-[10px] text-indigo-500 font-bold uppercase tracking-widest">Rank #04</p>
-            </div>
-            <img src="https://ui-avatars.com/api/?name=Fellow&background=4f46e5&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
+            <button onclick="showTab('register')" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition">REGISTER AS ARTISAN</button>
         </div>
     </nav>
 
-    <main class="flex-1 overflow-y-auto pb-28 p-5 sm:p-8">
-        <div class="max-w-5xl mx-auto space-y-8">
-
-            <div id="tab-dashboard" class="space-y-8 animate-in fade-in duration-500">
-                <div class="relative bg-indigo-600 rounded-[2.5rem] p-8 text-white overflow-hidden shadow-2xl">
-                    <div class="relative z-10">
-                        <h2 class="text-3xl font-black mb-2">Welcome Back, Fellow!</h2>
-                        <p class="text-indigo-100 opacity-80 max-w-sm mb-6">You're 74% through the Digital Inclusion track. Keep pushing for impact!</p>
-                        <button onclick="switchTab('exam')" class="bg-white text-indigo-600 px-6 py-3 rounded-2xl font-black text-sm hover:scale-105 transition shadow-lg">Resume Assessment</button>
-                    </div>
-                    <i class="fas fa-rocket absolute -bottom-4 -right-4 text-9xl opacity-10 rotate-12"></i>
-                </div>
-
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
-                        <i class="fas fa-fire text-orange-500 mb-2"></i>
-                        <p class="text-[10px] uppercase font-black text-slate-400">Streak</p>
-                        <p class="text-2xl font-black text-slate-800">12 Days</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
-                        <i class="fas fa-star text-yellow-500 mb-2"></i>
-                        <p class="text-[10px] uppercase font-black text-slate-400">Points</p>
-                        <p class="text-2xl font-black text-slate-800">2,450</p>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-black text-slate-800 mb-5">Learning Modules</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 flex gap-4 items-start">
-                            <div class="bg-blue-50 p-4 rounded-2xl text-blue-600"><i class="fas fa-globe text-xl"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800">Digital Inclusion</h4>
-                                <p class="text-xs text-slate-500 mb-3">Community access strategies</p>
-                                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-blue-600 h-full w-[85%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 flex gap-4 items-start">
-                            <div class="bg-green-50 p-4 rounded-2xl text-green-600"><i class="fas fa-seedling text-xl"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-800">Eco-Tech Basics</h4>
-                                <p class="text-xs text-slate-500 mb-3">Environment pillar concepts</p>
-                                <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                                    <div class="bg-green-500 h-full w-[30%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-exam" class="hidden space-y-6">
-                <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-indigo-50">
-                    <div class="flex justify-between items-center mb-8">
-                        <div class="flex items-center gap-3">
-                            <div class="w-2 bg-indigo-600 h-6 rounded-full"></div>
-                            <h3 class="font-black text-xl text-slate-800">Knowledge Showcase</h3>
-                        </div>
-                        <span id="timer" class="bg-red-50 text-red-500 px-4 py-2 rounded-xl font-bold font-mono">14:59</span>
-                    </div>
-                    <p id="qText" class="text-2xl font-bold text-slate-700 mb-10 leading-tight">Preparing your assessment...</p>
-                    <div id="optionsGrid" class="grid gap-4"></div>
-                </div>
-            </div>
-
-            <div id="tab-results" class="hidden text-center py-12">
-                <div class="w-24 h-24 bg-green-500 text-white rounded-[2.5rem] flex items-center justify-center mx-auto mb-6 shadow-2xl rotate-3">
-                    <i class="fas fa-check text-4xl"></i>
-                </div>
-                <h2 class="text-4xl font-black text-slate-800 mb-2">Impact Recorded!</h2>
-                <p class="text-slate-500 mb-8">Your results are synced with the 3MTT dashboard.</p>
-                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 inline-block w-full max-w-sm">
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Showcase Performance</p>
-                    <h1 id="scoreDisplay" class="text-7xl font-black text-indigo-600">100%</h1>
-                </div>
-            </div>
-
+    <header class="bg-white px-6 py-12 border-b border-slate-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 leading-tight">Find Local Skills. <span class="gradient-text">Empower Local Lives.</span></h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">Bridging the Digital Divide by bringing our community's best artisans into the digital economy.</p>
         </div>
-    </main>
+    </header>
 
-    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-[2.5rem] p-3 flex justify-between items-center z-50">
-        <button onclick="switchTab('dashboard')" id="nav-dashboard" class="active-tab flex items-center gap-3 px-6 py-3 rounded-2xl transition-all duration-300">
-            <i class="fas fa-house"></i>
-            <span class="text-xs font-bold uppercase">Home</span>
-        </button>
-        <button onclick="switchTab('exam')" id="nav-exam" class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-400 hover:text-indigo-600 transition-all duration-300">
-            <i class="fas fa-pen-nib"></i>
-            <span class="text-xs font-bold uppercase">Test</span>
-        </button>
+    <div class="max-w-6xl mx-auto p-6">
+        <div class="flex justify-center gap-8 mb-8 border-b border-slate-200">
+            <button onclick="showTab('directory')" id="btn-directory" class="pb-4 font-bold text-sm tab-active">DIRECTORY</button>
+            <button onclick="showTab('verify')" id="btn-verify" class="pb-4 font-bold text-sm text-slate-400">SKILLS TEST</button>
+        </div>
+
+        <div id="tab-directory" class="space-y-6 animate-fade">
+            <div class="relative max-w-md mx-auto mb-10">
+                <i class="fas fa-search absolute left-4 top-4 text-slate-400"></i>
+                <input type="text" placeholder="Search Carpentry, Plumbing, Tailoring..." class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-slate-200 focus:ring-2 focus:ring-indigo-500 shadow-sm outline-none">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-transform cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <img src="https://ui-avatars.com/api/?name=John+D&background=random" class="w-14 h-14 rounded-2xl">
+                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-green-200">Verified</span>
+                    </div>
+                    <h4 class="font-bold text-lg">John Danjuma</h4>
+                    <p class="text-indigo-600 text-sm font-bold mb-4 uppercase tracking-tighter">Master Carpenter</p>
+                    <div class="flex items-center gap-2 text-slate-400 text-xs mb-4">
+                        <i class="fas fa-location-dot"></i> <span>Gwarinpa, Abuja</span>
+                    </div>
+                    <button class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-indigo-600 transition">Contact Artisan</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-xl hover:-translate-y-2 transition-transform cursor-pointer">
+                    <div class="flex justify-between items-start mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+T&background=random" class="w-14 h-14 rounded-2xl">
+                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-blue-200">Featured</span>
+                    </div>
+                    <h4 class="font-bold text-lg">Sarah Tobi</h4>
+                    <p class="text-indigo-600 text-sm font-bold mb-4 uppercase tracking-tighter">Fashion Designer</p>
+                    <div class="flex items-center gap-2 text-slate-400 text-xs mb-4">
+                        <i class="fas fa-location-dot"></i> <span>Lekki, Lagos</span>
+                    </div>
+                    <button class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-indigo-600 transition">Contact Artisan</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-verify" class="hidden max-w-xl mx-auto">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-indigo-100 text-center">
+                <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-4">Digital Literacy Quiz</h3>
+                <p class="text-slate-500 mb-8">Artisans must pass this to get the "Verified" badge for customers to trust them.</p>
+                <div id="quiz-box" class="text-left space-y-6">
+                    <p id="qText" class="font-bold text-lg text-slate-800 leading-tight">Loading Assessment...</p>
+                    <div id="options" class="grid gap-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-register" class="hidden max-w-xl mx-auto">
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl">
+                <h3 class="text-2xl font-black mb-6">Create Your Profile</h3>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full p-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <select class="w-full p-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                        <option>Choose Skill</option>
+                        <option>Carpenter</option>
+                        <option>Tailor</option>
+                        <option>Plumber</option>
+                    </select>
+                    <input type="text" placeholder="Phone Number" class="w-full p-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                    <button type="button" onclick="showTab('verify')" class="w-full bg-indigo-600 text-white py-4 rounded-2xl font-black shadow-xl hover:bg-indigo-700 transition">NEXT: VERIFY SKILLS</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <script>
-        const questions = [
-            { q: "Which pillar focuses on bridging the gap between rural areas and digital tools?", a: ["Environment", "Digital Inclusion", "Financial Inclusion"], c: 1 },
-            { q: "What is the deadline for the 3MTT NextGen Showcase?", a: ["March 30", "March 24", "April 1"], c: 1 }
-        ];
-        let qi = 0; let score = 0;
+    <footer class="p-10 text-center text-slate-400 text-xs border-t mt-20">
+        <p>&copy; 2026 Skill-Sync Portal | A 3MTT NextGen Showcase Project</p>
+    </footer>
 
-        function switchTab(t) {
+    <script>
+        const bank = [
+            { q: "What is the best way to show your work to customers online?", a: ["WhatsApp Business", "Analog TV", "Newspapers"], c: 0 },
+            { q: "Why should an artisan have a digital profile?", a: ["To pay more tax", "To be visible to more customers", "To buy more tools"], c: 1 }
+        ];
+        let qi = 0;
+
+        function showTab(t) {
             document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.add('hidden'));
             document.getElementById(`tab-${t}`).classList.remove('hidden');
             
-            document.querySelectorAll('[id^="nav-"]').forEach(btn => btn.classList.remove('active-tab', 'text-slate-400'));
-            document.getElementById(`nav-${t}`).classList.add('active-tab');
-
-            if(t === 'exam') startExam();
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => btn.classList.remove('tab-active', 'text-slate-900'));
+            const activeBtn = document.getElementById(`btn-${t}`);
+            if(activeBtn) activeBtn.classList.add('tab-active');
+            
+            if(t === 'verify') runQuiz();
         }
 
-        function startExam() {
-            const cur = questions[qi];
+        function runQuiz() {
+            const cur = bank[qi];
             document.getElementById('qText').innerText = cur.q;
-            const grid = document.getElementById('optionsGrid');
-            grid.innerHTML = "";
-            cur.a.forEach((opt, i) => {
+            const optDiv = document.getElementById('options');
+            optDiv.innerHTML = "";
+            cur.a.forEach((o, i) => {
                 const b = document.createElement('button');
-                b.className = "p-5 text-left bg-slate-50 border-2 border-slate-100 rounded-2xl font-bold hover:border-indigo-500 hover:bg-indigo-50 transition-all flex items-center gap-4 group";
-                b.innerHTML = `<span class="w-10 h-10 rounded-xl bg-white group-hover:bg-indigo-600 group-hover:text-white flex items-center justify-center shadow-sm transition-colors font-mono">${String.fromCharCode(65+i)}</span> ${opt}`;
-                b.onclick = () => {
-                    if(i === cur.c) score++;
-                    qi++;
-                    if(qi < questions.length) startExam(); else finish();
-                };
-                grid.appendChild(b);
+                b.className = "w-full p-4 text-left border-2 border-slate-100 rounded-2xl font-bold hover:border-indigo-600 hover:bg-indigo-50 transition flex items-center gap-3";
+                b.innerHTML = `<span class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">${String.fromCharCode(65+i)}</span> ${o}`;
+                b.onclick = () => { qi++; if(qi < bank.length) runQuiz(); else alert("Verification Complete! Profile Live."); };
+                optDiv.appendChild(b);
             });
-        }
-
-        function finish() {
-            switchTab('results');
-            document.getElementById('scoreDisplay').innerText = Math.round((score/questions.length)*100) + "%";
         }
     </script>
 </body>
